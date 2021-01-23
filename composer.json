@@ -1,0 +1,21 @@
+{
+    "name": "cplugins/exception",
+    "description": "exception helper",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mervin",
+            "email": "developer@bikego.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cplugins\\Exception\\": "src/"
+        }
+    }
+}
