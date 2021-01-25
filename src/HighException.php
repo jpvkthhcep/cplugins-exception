@@ -13,10 +13,10 @@ use Throwable;
  */
 class HighException extends Exception
 {
-    public function __construct($message = "", $code = 0, ?Throwable $previous = null)
+    public function __construct($message = "", $code = 0, ?Throwable $previous = null, $e = null)
     {
         parent::__construct($message, $code, $previous);
         // 报警
-        ExceptionAlert::alert($this);
+        ExceptionAlert::alert($e == null ? $this : $e);
     }
 }
