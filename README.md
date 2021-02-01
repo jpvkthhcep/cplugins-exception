@@ -10,7 +10,7 @@ composer require cplugins/exception v1.0.5
 ## 配置
 vendor/cplugins/exception/src/ExceptionAlert.php 文件 37行
 
-配置异常推送的url
+配置异常推送的url, 多G.O上线后从env调用该链接
 
 ## 使用 
 ```
