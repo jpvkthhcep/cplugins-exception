@@ -34,7 +34,7 @@ class ExceptionAlert
             // $address = $caller[0]." ".$caller[1];
             $exception .= "错误信息：". $exceptionInfo[1].$line;
             $exception .= "堆栈信息：".$exceptionInfo[2];
-            $result = self::curl_post(ExceptionConfig::dingUrl, ["level"=>$alertLevel, "address"=>$address, "exception"=>$exception]);
+            $result = self::curl_post("http://mc.bikego.com:22599//message/dingding/exceptionalert", ["level"=>$alertLevel, "address"=>$address, "exception"=>$exception]);
             return $result;
         } catch (Exception $e) {
             var_dump($e->getMessage(), "错误消息");
