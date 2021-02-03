@@ -29,8 +29,16 @@ class ExceptionAlert
             $exceptionInfo = self::getException($exception);
             // 微服务
             $address = "项目名称：".$projectInfo;
+
+            $exception = "";
+            if (!empty($_SERVER["REQUEST_URI"])) {
+                $exception .= "请求地址：". $_SERVER["REQUEST_URI"].$line;
+            }
+            if (!empty($_SERVER["QUERY_STRING"])) {
+                $exception .= "请求参数：". json_encode($_SERVER["QUERY_STRING"]).$line;
+            }
             // 调用方法
-            $exception = "调用方法：". $caller[0]." ".$caller[1] .$line;
+            $exception .= "调用方法：". $caller[0]." ".$caller[1] .$line;
             // $address = $caller[0]." ".$caller[1];
             $exception .= "错误信息：". $exceptionInfo[1].$line;
             $exception .= "堆栈信息：".$exceptionInfo[2];
