@@ -20,7 +20,7 @@ class ExceptionAlert
             // 换行符
             $line = "\r\n";
             // 获取项目信息
-            $projectInfo = base_path();
+            $projectInfo = env("APP_NAME");
             // 异常级别
             $alertLevel = self::getAlertLevel($exception);
             // 获取异常类的调用者信息
@@ -34,7 +34,7 @@ class ExceptionAlert
             // $address = $caller[0]." ".$caller[1];
             $exception .= "错误信息：". $exceptionInfo[1].$line;
             $exception .= "堆栈信息：".$exceptionInfo[2];
-            $result = self::curl_post("http://mc.bikego.com:22599//message/dingding/exceptionalert", ["level"=>$alertLevel, "address"=>$address, "exception"=>$exception]);
+            $result = self::curl_post(env("DING_DING_ALERT_URL"), ["level"=>$alertLevel, "address"=>$address, "exception"=>$exception]);
             return $result;
         } catch (Exception $e) {
             var_dump($e->getMessage(), "错误消息");

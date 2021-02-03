@@ -4,7 +4,7 @@
 ## 安装
 项目根目录执行:
 ```
-composer require cplugins/exception v1.0.6
+composer require cplugins/exception
 ```
 
 ## 配置
